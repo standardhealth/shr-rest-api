@@ -17,6 +17,101 @@
     "http"
   ],
   "paths": {
+    "/patient": {
+      "put": {
+        "summary": "Update a single patient record",
+        "description": "Updates a single patient record",
+        "operationId": "updatePatientRecord",
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "patient",
+            "description": "Patient object to update",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Update",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*",
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*",
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          },
+          "404": {
+            "description": "Patient not found",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*",
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "responses": {
+          "200": {
+            "description": "Successful Update",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*",
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*",
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          },
+          "404": {
+            "description": "Patient not found",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*",
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          }
+        }
+      }
+    },
     "/patient/{shrId}": {
       "get": {
         "summary": "Find patient by SHR ID",
@@ -37,7 +132,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "Successful Operation",
             "headers": {
               "Access-Control-Allow-Origin": {
                 "type": "string",
